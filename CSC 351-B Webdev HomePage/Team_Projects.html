@@ -17,6 +17,11 @@
             border-radius: 50%;
         }
 
+        /* GitHub Button Style */
+        .github-btn img {
+            margin-right: 5px;
+        }
+
         /* Section Styles */
         section {
             padding: 20px;
@@ -83,47 +88,22 @@
                 <img width="30" height="30" src="images/GitHub-logo.png" alt="Github Logo" class="github-btn img">
             </button>
         </a>
-        <a href="#About">About James Feeney</a>
+        <a href="Main_Hub.html#About">About James Feeney</a>
         <h3>Navigation Menu</h3>
-        <a href="Team_Projects.html">Feeney's Team Projects</a>
+        <a href="Main_Hub.html">Home Page</a>
         <a href="Solo_Projects.html">Feeney's Solo Projects</a>
     </nav>
 
-    <!-- Some Big Welcoming Page -->
-    <section class="image-section">
-        <div class="image_content">
-            <h2>"Therefore, since we are surrounded by so great a cloud of witnesses, let us also lay aside every weight, 
-            and sin which clings so closely, and let us run with perseverance the race that is set before us 
-            looking to Jesus the pioneer and perfecter of our faith..." - Hebrews 12:1-2</h2> 
-        </div>
-    </section>
-
     <!-- About Me Section -->
-    <section class="about_me-section">
-        <div id="About" class="about_me-content">
-            <h3>About Me</h3>
-            <p>Hello There! My Name is James Feeney. I am a current undergrad enrolled sophomore at Franciscan University of Steubenville 
-                majoring in Computer Science with a double minor in Mathematics and History.
-                </p>
-            <p> When I am away from the computer, I focus on improving my relationship with God. Praying and meditating more as well
-                as spending more time every day at Mass or in front of our Lord.
-                </p>
-    
-                <p>I also spend my time creating stories and trying to execute them either visually or through writing.</p>
-    
-                <p>I am eager to continue my studies and learn more about web-development through my journey this semester</p>
-        </div>
-    </section>
+    <section id="Team">
+    <div id="Solo" class="about_me-content">
+        <h2>Team Projects</h2>
 
-
-    <!-- Project Section -->
-    <section class="project-text-section">
-        <div class="project_content">
-            <h3>Check Out Some of My Projects</h3>
-            <p>If you're curious about my work, consider checking out some of the previous team and individual projects I worked on</p>
-            <a href="Team Projects.html">Feeney's Team Projects</a>
-            <a href="Solo_Projects.html">Feeney's Solo Projects</a>
-        </div>
+        <h4>Team Introduction Webdev Project</h4>
+        <nav>
+            <a href="https://github.com/MaxTiriobo/HTMLtags">Webdev Intro Team Project</a>
+        </nav>
+    </div>
     </section>
 
     <!-- Footer -->
@@ -134,7 +114,7 @@
 
     <script>
         function scrollToSection() {
-            document.getElementById("About").scrollIntoView({ behavior: 'smooth' });
+            document.getElementById("Team").scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
