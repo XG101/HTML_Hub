@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub_World</title>
+    <link rel="stylesheet" href="Hub_Scripts.css">
+
+    <style>
+
+        header h1 {
+            font-size: 1.8em;
+            margin: 0;
+        }
+
+        header img {
+            border-radius: 50%;
+        }
+
+        /* GitHub Button Style */
+        .github-btn img {
+            margin-right: 5px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 20px;
+        }
+
+        /* Image Section */
+        .image-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 10px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .image_content {
+            text-align: center;
+            background-color: rgba(22, 22, 22, 0.5);
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Me Section */
+        .about_me-content {
+            text-align: center;
+            background-color: rgba(163, 163, 163, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Project Section */
+        .project_content {
+            text-align: center;
+            background-color: rgba(163, 163, 163, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body bgcolor="#D3D3D3">
+
+    <!-- Header with Image and Title -->
+    <header>
+        <h1>The Feeney's Webdev Adventures of 2025</h1>
+        <img width="90" height="90" src="images/Feeney_Symbol.jpg" alt="Feeney Symbol">
+    </header>
+
+    <!-- Sticky Navigation Menu -->
+    <nav>
+        <a href="https://github.com/XG101" class="github-btn">
+            <button>
+                <img src="images/GitHub-logo.png" alt="Github Logo" class="github-btn img">
+            </button>
+        </a>
+        <a href="Main_Hub.html">Home Page</a>
+        <h3>Navigation Menu</h3>
+        <a href="Team_Projects.html">Feeney's Team Projects</a>
+        <a href="Solo_Projects.html">Feeney's Solo Projects</a>
+    </nav>
+
+    <!-- Showing Off Stuff I guess -->
+    <section id="Modding">
+    <div id="Modding">
+        <!--Doing this Because I forgot how bad the styling was on this site-->
+        <style>
+            .styled-image {
+                display: block;
+                /* centers the image */
+                margin: 0 auto;
+
+                /* Part of Image Rescaling */
+                max-width: 50%;
+                height: auto;
+
+                border: 5px solid #333;
+                border-radius: 8px;
+
+                /* Part of the Image Hovering Thing */
+                transition: transform 0.3s ease;
+                }
+        </style>
+        <h2>Modding Website to Look Better</h2>
+
+        <p>The goal is to look through a website and change tags and elements through the inspect feature</p>
+
+
+        <h3>Before Changes</h3>
+        <img class="styled-image" src="Other Pages/Wed_Modding_Changes/Site_Prior.jpg" alt="Prior Image">
+        <p>Here we have a site that has a couple of things wrong and annoying about it. First, one of the headers tries to be special and have part of the message be typed in and out every second which
+            for a reading purpose makes it very annoying for the user to read.
+        </p>
+        <p>Second the buttons for the top and slideshow are meant to be the same yet fail color coordination. Can be very confusing for the user if they read through the page and just remember by color
+            what the button is suppose to be.
+        </p>
+        <p>On the topic of color in my opinion the colors here are not bad but can be redone. I personally not a fan of white being the primary color and much prefer a darker color like light gray or the
+            blue that is used for this site instead. This also goes with the fonts, while it is not horriable there are better fonts out there to use.
+        </p>
+
+        <h3>My Final Result</h3>
+        <img class="styled-image" src="Other Pages/Wed_Modding_Changes/Final_Result.jpg" alt="After Image">
+        <p>Here is my take on the site. Changed the colors for blue to be the primary and white to be the third color or 10% rule from class. I removed the 'fancy' header script and changed the font to mainly
+            Arial and Times New Roman.
+        </p>
+
+        <h3>Color Changing</h3>
+        <img class="styled-image" src="Other Pages/Wed_Modding_Changes/Color_Panel.jpg" alt="Color Image">
+        <p>What I did first was the color changing to help get familar with the inspect feature. I would go through the tag sections and look for specific elements to change, in this case anything that could help
+            with changing the section background or a header/paragraph text color.
+        </p>
+
+        <h3>Font Changing</h3>
+        <img class="styled-image" src="Other Pages/Wed_Modding_Changes/Font_Panel.jpg" alt="Font Change">
+        <p>Next order of business was to locate the font family. Like the colors I went through the elements and looked for the font families. While they mainly had the same stuff, the fonts I noticed would only
+            change by changing the font type that was in the quotations.
+        </p>
+
+        <h3>Header Changing</h3>
+        <img class="styled-image" src="Other Pages/Wed_Modding_Changes/After_Text.jpg" alt="Got Lazy and Used one photo">
+        <p>Lastly I went to the header to force the fancy feature off. When I located the element I found it had two header tags, one scripted the other not scripted. The simplest solution was for me to copy and paste
+            the text from the scripted element and added to the note scripted element. Afterwards I deleted the empty scripted element.
+        </p>
+
+        <a href="https://github.com/XG101/Site-Modding">Link to the Files</a>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h5>Name: James Feeney</h5>
+        <h5>Year: Second Year Second Semester</h5>
+        <h5>Contact Me! Email: jfeeney002@student.franciscan.edu</h5>
+    </footer>
+</body>
+</html>
