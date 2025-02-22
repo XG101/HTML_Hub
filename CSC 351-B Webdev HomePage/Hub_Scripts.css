@@ -1,0 +1,134 @@
+/*Importing Lib for us to gain access to the different fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+header {
+  font-family: 'Georgia', sans-serif;
+  padding: 15px 0;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Georgia', sans-serif;
+  padding: 5px 0;
+  text-align: center;
+}
+
+p {
+  color: var(--text-color);
+  font-family: 'Times New Foman', sans-serif;
+  text-align: center;
+}
+
+/*Navigation Menu*/
+/* Sticky Navigation Menu Styles */
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  z-index: 1000; /* Ensures it's on top */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 4px 2px -2px gray;
+  width: 100%; /* Ensure full width */
+}
+
+/* Navigation Links Styling */
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #555;
+  border-radius: 5px;
+}
+
+nav button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+/* Centered "Navigation Menu" */
+nav h3 {
+  color: white;
+  font-size: 1.4em;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* GitHub Button Style */
+.github-btn {
+  display: inline-block; /* Ensures it's treated like a button */
+  width: auto; /* Allow width to be controlled by the image size */
+  height: auto; /* Allow height to be controlled by the image size */
+  background-color: #fffbfb; /* Optional: Add a background color to make it look like a button */
+  padding: 5px; /* Optional: Add some padding around the image */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.github-btn img {
+  width: 100px;  /* Set width to a specific value */
+  height: auto;  /* Maintain aspect ratio */
+  display: block;
+  border-radius: 5px; /* Optional: Add rounded corners to the image */
+}
+
+/* Section Styles */
+section {
+  padding: 20px;
+}
+
+/* General Reset and Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%; /* Ensure full height of the page */
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+a /*this is how the link tags are called*/ {
+  color: rgb(104, 127, 230);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(104, 204, 230);
+}
+
+#About {
+  /* margin-top: 800px; */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#Solo {
+  /* margin-top: 800px; */
+  padding: 20px;
+  border-radius: 8px;
+}
+
+#Team {
+  /* margin-top: 800px; */
+  padding: 20px;
+  border-radius: 8px;
+}
