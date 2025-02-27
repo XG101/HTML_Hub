@@ -1,0 +1,287 @@
+/*Importing Lib for us to gain access to the different fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Where we have out colors list and what the roles of those colors are */
+:root {
+    --primary-color: #f7d9ab;
+    --secondary-color: #b094687e;
+    --accent-color: #e78f3c;
+    --background-color: #b09468;
+    --text-color:  rgb(70, 43, 22);
+    --header-color: rgb(70, 43, 22);
+    --link-color: #064561;
+    --link-hover-color: #28738a;
+}
+
+.flex-container {
+    display: flex;
+    background-color: black;
+  }
+  
+  .flex-container > div {
+    background-color: rgb(70, 43, 22);
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+    color: black;
+  }
+  #target {
+    /* margin-top: 800px; */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  #YT {
+    /* margin-top: 800px; */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  #audio {
+    /* margin-top: 800px; */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  #creators {
+    /* margin-top: 800px; */
+    padding: 20px;
+    border-radius: 8px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+
+/*Stuff for the entire site, aka where the body and section tags are set*/
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+
+    font-family: 'Georgia', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+title {
+    color: var(--text-color);
+    text-align: var(--text-align);
+}
+
+header {
+    background-color: var(--header-color);
+    font-family: 'Pacifico', sans-serif;
+    padding: 15px 0;
+    text-align: center;
+    text-shadow: 2px 2px 5px black; /*shadow on header*/
+    line-height: 12px; /*scooches the two lines closer together*/
+}
+
+/*this is the rest of the shadow stuff*/
+.titleofsite {
+    text-shadow: 2px 2px 5px #6d6d6d; /*light gray shadow*/
+}
+
+.browntitle {
+    text-shadow: 2px 2px 5px var(--primary-color);
+}
+
+.whiteshadow {
+    text-shadow: 2px 2px 5px white;
+}
+
+.topPart {
+  position: sticky;
+  top: 0;
+  padding: 10px 16px;
+  background: rgb(90, 59, 14);
+  color: #000000;
+  width: 96.8vw;
+  left: 0;
+  z-index: 10; 
+}
+.creators {
+    color: rgb(141, 120, 66);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Pacifico', sans-serif;
+    padding: 5px 0;
+    text-align: center;
+}
+
+p {
+    color: var(--text-color);
+    font-family: 'Georgia', sans-serif;
+    text-align: center;
+}
+p.output {
+    color: var(--text-color, black);
+    text-align: left;
+    font-family: verdana;
+}
+
+a /*this is how the link tags are called*/ {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--link-hover-color);
+}
+.topPart {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    z-index: 1000; /* Ensures it's on top */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 2px -2px gray;
+    width: 100%; /* Ensure full width */
+}
+
+nav {
+    top: 0;
+    background-color: #333;
+    z-index: 1000; /* Ensures it's on top */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 2px -2px gray;
+    width: 100%; /* Ensure full width */
+}
+
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+nav a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+section{
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    font-family: 'Georgia', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+footer {
+    color: var(--text-color);
+
+}
+img {
+    display: block;
+    /* centers the image */
+    margin: 0 auto; 
+
+    /* Part of Image Rescaling */
+    max-width: 50%;
+    height: auto;
+
+    border: 5px solid #333;
+    border-radius: 8px;
+
+    /* Part of the Image Hovering Thing */
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1); /* Scale the image by 10% */
+  }
+
+
+button {
+    display: block;
+    /* centers button */
+    margin: 0 auto;
+    color: black;
+}
+
+video {
+    display: block;
+    /* centers video */
+    margin: 0 auto;
+
+    /*Added with media enhancments*/
+    width: 50%;
+    height: auto;
+    border: 5px solid #333;
+    border-radius: 8px;
+}
+
+iframe {
+    display: block;
+    /* centers video */
+    margin: 0 auto;
+}
+fieldset{
+    border: 2px solid #555;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 3px;
+    background-color: #f9f9f9;
+    color: #000000;
+}
+input:focus {
+  background-color: var(--link-hover-color);
+}
+
+/* Updates to the Video tag to allow for the features she wanted */
+.video-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .controls {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+  }
+
+  .controls button, .controls input {
+    background: #fff;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .controls .play-pause {
+    background: #00f;
+    color: #fff;
+  }
+
+  .controls .mute {
+    background: #f00;
+    color: #fff;
+  }
+
+  audio {
+    display: block;
+    /* centers audio */
+    margin: 0 auto;
+
+    width: 50%;
+    background-color: #000000;
+    border-radius: 16px;
+    box-shadow: 0px 4px 6px rgb(0, 0, 0);
+  }

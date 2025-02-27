@@ -1,0 +1,21 @@
+@import "../../BootStrap/Sassy-CSS-Team-Thingy/node_modules/bootstrap/scss/bootstrap.scss";
+
+$main_col: rgb(104, 76, 37);
+$second_col: rgb(255, 255, 255);
+$thrid_col: rgb(58, 63, 162);
+
+body{
+    background-color: $main_col;
+}
+
+main{
+    background-color: $main_col;
+}
+header {
+    background-color: $second_col;
+}
+.sticky-top {
+    background-color: $second_col;
+}
+
+
