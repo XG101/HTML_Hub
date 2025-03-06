@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Filter</title>
+</head>
+<body>
+
+<h1>Recipe Cards</h1>
+
+<!-- Search input -->
+<input type="text" id="search-input" placeholder="Search...">
+
+<!-- Category checkboxes -->
+<div>
+    <input type="checkbox" class="category-filter" id="category-1" value="Category 1"> Category 1
+    <input type="checkbox" class="category-filter" id="category-2" value="Category 2"> Category 2
+    <input type="checkbox" class="category-filter" id="category-3" value="Category 3"> Category 3
+    <input type="checkbox" class="category-filter" id="other" value="Other"> Other
+</div>
+
+<!-- Cards -->
+<div class="card" data-categories="Category 1">
+    <h5>Recipe 1</h5>
+    <p>Recipe details here...</p>
+</div>
+
+<div class="card" data-categories="Category 2">
+    <h5>Recipe 2</h5>
+    <p>Recipe details here...</p>
+</div>
+
+<div class="card" data-categories="Category 3, Other">
+    <h5>Recipe 3</h5>
+    <p>Recipe details here...</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('query'); // Get the query from the URL if available
+
+    const searchInput = document.getElementById('search-input');
+    if (query) {
+        searchInput.value = query;  // If there's a query, pre-fill the search input
+    }
+
+    const cards = document.querySelectorAll('.card');
+    const categoryFilters = document.querySelectorAll('.category-filter');
+
+    function filterCards(query) {
+        const queryLower = query.toLowerCase();
+        cards.forEach(card => {
+            const recipeName = card.querySelector('h5').textContent.toLowerCase();
+            const cardCategories = card.getAttribute('data-categories') ? card.getAttribute('data-categories').split(',').map(cat => cat.trim()) : [];
+
+            let matchesQuery = recipeName.includes(queryLower);
+
+            // For category filters: card must match at least one of the selected categories
+            let matchesCategory = false;
+            categoryFilters.forEach(filter => {
+                if (filter.checked && cardCategories.includes(filter.value)) {
+                    matchesCategory = true;
+                }
+            });
+
+            // Show card if it matches both the query and category filters
+            if (matchesQuery && (matchesCategory || categoryFilters.length === 0 || !Array.from(categoryFilters).some(f => f.checked))) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // Run the filter when the page loads if a query is present
+    if (query) {
+        filterCards(query);
+    }
+
+    // Add event listener to update filter when the search or category filter changes
+    searchInput.addEventListener('input', function () {
+        filterCards(searchInput.value);  // Filter cards based on the search input
+    });
+
+    // Add event listeners to category checkboxes to filter when checked/unchecked
+    categoryFilters.forEach(filter => {
+        filter.addEventListener('change', function () {
+            filterCards(searchInput.value);  // Re-apply the search and category filters
+        });
+    });
+});
+</script>
+
+</body>
+</html>
