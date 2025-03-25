@@ -16,8 +16,8 @@
     <div class="topPart" id="MyHeader">
         <h1 class="titleofsite">Miscelanuous Music Info</h1>
         <div class="flex-container">
-            <div><a href="#YT">Go to Youtube</a></div>
-            <div><a href="#audio">Go to Audio</a></div>
+            <div><a href="#YT">Go to Audio</a></div>
+            <div><a href="../../Solo_Projects.html">Go Back To Solo Projects</a></div>
             <div><a href="#">Go to Top</a></div>
             <div><a href="#target">Go to Filedset</a></div>
         </div>
@@ -62,26 +62,34 @@
 
         <!-- YouTube Embed Section -->
         <section>
-            <aside id="YT">
                 <h3 class="browntitle">Example of Some really cool musica</h3>
                 <h5>Performed by the Royal Bangkok Symphony Orchestra (RSBO)</h5>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/WwYfyL9UC6g?si=Mw8gOQM4ZXPJ77e2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </aside>
         </section>
 
         <!-- Image Section -->
-        <section>
+        <aside id="YT">
+        <section id="mediaSection">
             <div id="mediaContainer">
-                <h1>Click an image to watch a video</h1>
+                <h1>Click an image to watch/listen to a video</h1>
+                
+                <!-- Video toggle button -->
+                <button id="toggleVideoButton" class="collapsible">Show Video</button>
+                
+                <!-- Carousel container for images and navigation buttons -->
                 <div class="carousel-container">
-                    <button id="leftArrow">Left</button>
+                    <button id="leftArrow" class="carousel-arrow">Left</button>
+                    
+                    <!-- Image container, images will be dynamically added here -->
                     <div id="imageContainer" class="image-container">
-                        <!-- Media content will be dynamically added here -->
+                        <!-- Media content will be dynamically loaded here -->
                     </div>
-                    <button id="rightArrow">Right</button>
+                    
+                    <button id="rightArrow" class="carousel-arrow">Right</button>
                 </div>
         
-                <div id="videoContainer" style="display: none;">
+                <!-- Video container (Initially hidden) -->
+                <div id="videoContainer" class="video-container" style="display: none;">
                     <video id="video" width="320" height="240" controls>
                         <source id="videoSource" type="video/mp4">
                         Your browser does not support the video tag.
@@ -89,6 +97,7 @@
                 </div>
             </div>
         </section>
+        </aside>
 
         <!-- RSVP Section -->
         <section>
