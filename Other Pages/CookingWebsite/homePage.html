@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooking Website Homepage</title>
+
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="customBootstrap.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            color: #4e3b2f;
+        }
+    </style>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Home</h1>
+                </div>
+                <!--Search Bar-->
+                <div class="col">
+                    <form action="Recipies.html" method="get" class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search for recipes" name="query">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                <!--
+                <div class="col4">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        settings menu
+                        <div class="navbar-nav">
+                            <div class="container-fluid">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
+                                    <span class="navbar-stoggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <div class="navbar-nav">
+                                        <a class="nav-link" href="">Light/Dark Mode</a>
+                                        <a class="nav-link" href="">Seizure Mode</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </nav>
+                    </div>-->
+            </div>
+            <div class="row">
+                <!--home, recipes, about me, search, favorites-->
+                <nav class="navbar bg-secondary navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="homepage.html">Home</a>
+                            <a class="nav-link" href="Recipies.html">Recipes</a>
+                            <a class="nav-link" href="">About</a>
+                            <a class="nav-link" href="">Favorites</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h2>Welcome!</h2>
+                <p>
+                    Welcome to the Niklewski recipes! Here you can find recipes for all your cooking needs.
+                    We hope you enjoy all the deliciousness available!
+                </p>
+            </div>
+            <div class="col-6">
+                <h2>Recipe of the Day</h2>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="rice.jpg" class="img-fluid rounded-start" alt="rice">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Rice</h5>
+                                <p class="card-text">Learn how to make this infinitely customizable food and increase your cooking skills.</p>
+                                <a href="genericFood.html" class="btn btn-primary">Go to Recipe</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row bg-secondary my-2" style="height: 50px;">
+            <!--spacing row, cream color-->
+        </div>
+        <!--recipe cards here-->
+        <div class="row py-10">
+            <div class="col">
+                <div class="card" style="width: 18rem; height: 22rem;">
+                    <img src="pierogi.jpg" class="card-img-top mx-auto" style="width: 10rem; height: 14rem;" alt="pierogi">
+                    <div class="card-body">
+                        <h5 class="card-title">Pierogi</h5>
+                        <p class="card-text">Learn how to make this delicious Polish food.</p>
+                        <a href="genericFood.html" class="btn btn-primary">Go to Recipe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem; height: 22rem;">
+                    <img src="rice.jpg" class="card-img-top mx-auto mt-1" style="width: 10rem; height: 14rem;" alt="rice">
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Learn how to make this infinitely customizable food and increase your cooking skills.</p>
+                        <a href="genericFood.html" class="btn btn-primary">Go to Recipe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 18rem; height: 22rem;">
+                    <img src="pineapple.png" class="card-img-top mx-auto" style="width: 10rem; height: 14rem;" alt="pineapple">
+                    <div class="card-body">
+                        <h5 class="card-title">Food</h5>
+                        <p class="card-text">What the food is and why it is detremental.</p>
+                        <a href="genericFood.html" class="btn btn-primary">Food</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row bg-secondary my-2" style="height: 50px;">
+            <!--spacing row-->
+        </div>
+
+        <div class="row text-center">
+            <h2>Submit your own recipe!</h2>
+            <button type="button" class="btn btn-primary">Go to submission form --></button>
+        </div>
+        <br />
+    </div>
+    <footer>
+        <!--seems like we should have one of these, not sure what exactly should be in it-->
+        <div class="row bg-secondary my-2" style="height: 50px;">
+            <p>Niklewski Recipes</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+@import "../../BootStrap/Sassy-CSS-Team-Thingy/node_modules/bootstrap/scss/bootstrap.scss";
+
+$main_col: rgb(105, 72, 24);
+$second_col: rgb(255, 255, 255);
+$thrid_col: rgb(58, 63, 162);
+
+body{
+    background-color: $main_col;
+}
+
+main{
+    background-color: $main_col;
+}
+header {
+    background-color: $second_col;
+}
+
+// objects
+.btn {
+    background-color: $thrid_col;
+}
+.card {
+    background-color: $thrid_col;
+
+}
+
+
+
