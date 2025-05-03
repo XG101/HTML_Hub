@@ -2,119 +2,200 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="recipies.CSS" rel="stylesheet" />
-    <link href="bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="customBootstrap.css">
-    <!-- <script defer src="search_bar.js"></script> -->
-    <script defer src="check_filter.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Recipes</title>
+  <!-- Styles Imported -->
+  <link href="styles/recipies.CSS" rel="stylesheet" />
+  <link href="styles/bootstrap.min.css" rel="stylesheet" />
+  <link href="styles/customBootstrap.css" rel="stylesheet">
+
+  <!-- Scripts Imported -->
+  <script defer src="scripts/search_bar.js"></script>
+  <script defer src="scripts/card_json_loader.js"></script>
+  <script defer src="scripts/favors.js"></script>
+  <script defer src="scripts/scripts.js"></script>
+  
+  <title>Recipes</title>
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1>Recipes</h1>
-
+<body class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4">
+        <h1>Recipes</h1>
+      </div>
+      <!-- Search Bar -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <form action="Recipies.html" method="get" class="search-bar bg-light">
+            <input class="bg-secondary" type="text" id="search-input" placeholder="Search for recipes" name="query">
+            <button class="bg-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Home, Recipes, About Me, Search, Favorites -->
+      <nav class="navbar bg-secondary navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <div class="navbar-nav">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="Recipies.html">Recipes</a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="Favorites.html">Favorites</a>
+          </div>
+          <div>
+            <button class="btn btn-primary" id="seizure">%</button>
+            <button class="btn btn-primary" id="theme-switch">Change theme</button>
             </div>
-            <!--
-        <div class="col">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <!--settings menu
-                <div class="navbar-nav">
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <div class="navbar-nav">
-                                <a class="nav-link" href="">Light/Dark Mode</a>
-                                <a class="nav-link" href="">Seizure Mode</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </div>-->
         </div>
-        <div class="row">
-            <!--home, recipes, about me, search, favorites-->
-            <nav class="navbar bg-secondary navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <div class="navbar-nav">
-                        <a class="nav-link" href="homepage.html">Home</a>
-                        <a class="nav-link" href="Recipies.html">Recipes</a>
-                        <a class="nav-link" href="">About</a>
-                        <a class="nav-link" href="">Favorites</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <!--Search Bar-->
-        <div class="col-8 mx-auto">
-            <form action="Recipies.html" method="get" class="search-bar">
-                <input type="text" id="search-input" placeholder="Search for recipes" name="query">
-                <button type="submit">Search</button>
-            </form>
-        </div>
+      </nav>
+    </div>
 
-        <div class="sidenav">
-            <h6 class="ms-1">Advanced Search</h6>
-            <p>
-                <!-- Category checkboxes -->
+    <button class="btn btn-secondary d-lg-none" id="filter-toggle-btn">Filter</button>
+
+        <div class="sidenav filter-sidebar bg-secondary">
+            <div id="box" class="card p-3 bg-secondary">
+              <h5 class="mb-3">🔍 Advanced Search</h5>
+          
+              <div class="scroll-box">
+          
+                <div class="mb-4">
+                  <br>
+                  <h6>Dietary</h6>
+                  <div>
+                    <input type="checkbox" class="category-filter ms-1" value="Vegetarian"> Vegetarian<br>
+                    <input type="checkbox" class="category-filter ms-1" value="High-Protein"> High-Protein<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Gluten Free"> Gluten Free<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Dairy Free"> Dairy Free<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Nut Free"> Nut Free<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Vegan"> Vegan
+                  </div>
+                </div>
+          
+                <div class="mb-4">
+                  <h6>Seasons</h6>
+                  <div>
+                    <input type="checkbox" class="category-filter ms-1" value="All"> All<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Summer"> Summer<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Autumn"> Autumn<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Winter"> Winter<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Spring"> Spring
+                  </div>
+                </div>
+          
+                <div class="mb-4">
+                  <h6>Cuisine</h6>
+                  <div>
+                    <input type="checkbox" class="category-filter ms-1" value="American"> American<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Asian"> Asian<br>
+                    <input type="checkbox" class="category-filter ms-1" value="British"> British<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Cuban"> Cuban<br>
+                    <input type="checkbox" class="category-filter ms-1" value="French"> French<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Indian"> Indian<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Italian"> Italian<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Mediterranean"> Mediterranean<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Mexican"> Mexican<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Middle Eastern"> Middle Eastern<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Thai"> Thai
+                  </div>
+                </div>
+          
+                <div class="mb-4">
+                  <h6>Length</h6>
+                  <div>
+                    <input type="checkbox" class="category-filter ms-1" value="Short"> Short 5–10 min<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Standard">Standard 15–25 min<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Long">Long 30–60 min
+                  </div>
+                </div>
+          
                 <div>
-                    <input type="checkbox" class="category-filter ms-1" id="category-1" value="Food"> Food
-                    <br>
-                    <input type="checkbox" class="category-filter ms-1" id="category-2" value="Rice"> Rice
-                    <br>
-                    <input type="checkbox" class="category-filter ms-1" id="category-3" value="Other"> Other
+                  <h6>Difficulty</h6>
+                  <div>
+                    <input type="checkbox" class="category-filter ms-1" value="Easy"> Easy<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Moderate"> Moderate<br>
+                    <input type="checkbox" class="category-filter ms-1" value="Hard"> Hard
+                  </div>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            </p>
-        </div>
-
-        <br>
-        <!-- Cards -->
-        <div class="mainNav">
-            <div class="row">
-                <div class="col">
-                    <div class="card" style="width: 18rem;" categories="Food">
-                        <img src="pierogi.jpg" class="card-img-top" alt="pierogi">
-                        <div class="card-body">
-                            <h5 class="card-title">Pierogi</h5>
-                            <p class="card-text">Learn how to make this delicious Polish food.</p>
-                            <a href="genericFood.html" class="btn btn-primary">Go to Recipe</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem;" categories="Rice">
-                        <img src="rice.jpg" class="card-img-top mx-auto mt-1"  style="width: 14rem; height: 14rem;" alt="rice">
-                        <div class="card-body">
-                            <h5 class="card-title">Rice</h5>
-                            <p class="card-text">Learn how to make this infinitely customizable food and increase your cooking skills.</p>
-                            <a href="genericFood.html" class="btn btn-primary">Go to Recipe</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem;" categories="Other">
-                        <img src="pineapple.png" class="card-img-top" alt="pineapple">
-                        <div class="card-body">
-                            <h5 class="card-title">Other</h5>
-                            <p class="card-text">What the food is and why it is unique</p>
-                            <a href="genericOther.html" class="btn btn-primary">Other</a>
-                        </div>
-                    </div>
-                </div>
+          
+              </div>
             </div>
-        </div>
+          </div>
 
+        <!-- Cards Section -->
+        <div class="mainNav">
+            <div class="card-container">
+                <div class="card bg-light" id="card1" category-filter ms-1="Summer, American, Standard, Hard">
+                    <!-- ⭐ Favorite Button -->
+                    <button class="btn clear favorite-btn" onclick="addToFavorites('card1')">
+                        <img id="favorButton" src="images/star.svg" width="50" height="50" alt="Favorite Star" />
+                    </button>
+
+                    <!-- Card Image -->
+                    <img src="images/pierogi.jpg" class="card-img-top img-fluid" alt="pierogi" />
+
+                    <!-- Card Content -->
+                    <div class="card-body">
+                        <h5 class="card-title">Pierogi</h5> <!-- This is selected with .card-title -->
+                        <p class="card-text">Learn how to make this delicious Polish food.</p>
+                        <a href="genericFood.html?id=${recipe.id}" class="btn btn-primary">Go to Recipe</a>
+                        <!-- This is selected with <a> -->
+            </div>
+          </div>
+
+                <div class="card bg-light" id="card2" category-filter ms-1="Summer, Indian, Short, Easy">
+                    <!-- ⭐ Favorite Button -->
+                    <button class="btn clear favorite-btn" onclick="addToFavorites('card2')">
+                        <img id="favorButton" src="images/star.svg" width="50" height="50" alt="Favorite Star" />
+                    </button>
+
+                    <!-- Card Image -->
+                    <img src="images/rice.jpg" class="card-img-top img-fluid" alt="rice">
+
+                    <!-- Card Content -->
+                    <div class="card-body">
+                        <h5 class="card-title">Rice</h5>
+                        <p class="card-text">Learn how to make this infinitely customizable food and increase your
+                            cooking skills.</p>
+                        <a href="genericFood.html?id=${recipe.id}" class="btn btn-primary">Go to Recipe</a>
+            </div>
+          </div>
+
+                <div class="card bg-light" id="card3" category-filter ms-1="Spring, British, Long, Moderate">
+                    <!-- ⭐ Favorite Button -->
+                    <button class="btn clear favorite-btn" onclick="addToFavorites('card3')">
+                        <img id="favorButton" src="images/star.svg" width="50" height="50" alt="Favorite Star" />
+                    </button>
+
+                    <!-- Card Image -->
+                    <img src="images/pineapple.png" class="card-img-top img-fluid" alt="pineapple">
+
+                    <!-- Card Content -->
+                    <div class="card-body">
+                        <h5 class="card-title">Other</h5>
+                        <p class="card-text">What the food is and why it is unique</p>
+                        <a href="genericFood.html?id=${recipe.id}" class="btn btn-primary">Go to Recipe</a>
+            </div>
+          </div>
+
+                <div class="card bg-light" id="card4" category-filter ms-1="Winter, Polish, Standard, Hard">
+                    <!-- ⭐ Favorite Button -->
+                    <button class="btn clear favorite-btn" onclick="addToFavorites('card4')">
+                        <img id="favorButton" src="images/star.svg" width="50" height="50" alt="Favorite Star" />
+                    </button>
+
+                    <!-- Card Image -->
+                    <img src="images/easter_egg.webp" class="card-img-top img-fluid" alt="pineapple">
+
+                    <!-- Card Content -->
+                    <div class="card-body">
+                        <h5 class="card-title">Other the Sequel</h5>
+                        <p class="card-text">I am unique YIPEE!</p>
+                        <a href="genericFood.html?id=${recipe.id}" class="btn btn-primary">Go to Recipe</a>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>

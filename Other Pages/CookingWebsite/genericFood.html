@@ -6,50 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rice Recipe</title>
 
-    <link href="bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="customBootstrap.css">
+    <!--Style Imported-->
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/customBootstrap.css">
+
+    <!--Scripts Imported-->
+    <script defer src="scripts/scripts.js"></script>
+    <!--Any go here now-->
 </head>
 
-<body>
+<body class="bg-light">
     <header>
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col-12 col-sm-6 col-md-4">
                     <h1>Recipes</h1>
                     <!--<h1>*★,°*:.☆$$(￣▽￣)/$$:*.°★* 。</h1>-->
                 </div>
-                <!--
-                <div class="col">
-                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                        settings menu
-                        <div class="navbar-nav">
-                            <div class="container-fluid">
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true"
-                                    aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                                <div class="collapse navbar-collapse" id="navbarNav">
-                                    <div class="navbar-nav">
-                                        <a class="nav-link" href="">Light/Dark Mode</a>
-                                        <a class="nav-link" href="">Seizure Mode</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                </div>-->
             </div>
             <div class="row">
                 <!--home, recipes, about me, search, favorites-->
                 <nav class="navbar bg-secondary navbar-expand-lg bg-body-tertiary">
                     <div class="container-fluid">
                         <div class="navbar-nav">
-                            <a class="nav-link" href="homepage.html">Home</a>
+                            <a class="nav-link" href="index.html">Home</a>
                             <a class="nav-link" href="Recipies.html">Recipes</a>
-                            <a class="nav-link" href="">About</a>
-                            <a class="nav-link" href="">Favorites</a>
+                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="Favorites.html">Favorites</a>
                         </div>
+                        <button class="btn btn-primary" id="theme-switch">Change theme</button>
                     </div>
                 </nav>
             </div>
@@ -58,25 +43,23 @@
         </div>
         </div>
     </header>
-    <div class="contatiner">
+    <div class="container" id="recipe-container">
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col">
+            <div class="col-12 col-sm-6 col-md-4"></div>
+            <div class="col-12 col-sm-6 col-md-4">
                 <h2>Rice</h2>
             </div>
 
         </div>
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col">
+            <div class="col-12 col-sm-6 col-md-4"></div>
+            <div class="col-12 col-sm-6 col-md-4">
                 <p>Learn how to make this infinitely customizable food and increase your cooking skills.</p>
                 <h4>Ingredients</h4>
                 <p>
-                    <ul>
-                        <li>2 cups rice</li>
-                        <li>2 Tbs butter</li>
-                        <li>water</li>
-                    </ul>
+                    <input type="checkbox">2 cups rice <br>
+                    <input type="checkbox">2 Tbs butter<br>
+                    <input type="checkbox">water<br>
                 </p>
                 <h4>Cooking Instructions</h4>
                 <p>
@@ -91,12 +74,90 @@
                     </ol>
                 </p>
             </div>
-            <div class="col">
-                <img src="rice.jpg" class="img-fluid rounded-start" alt="rice">
+            <div class="col-12 col-sm-6 col-md-4">
+                <img src="images/rice.jpg" class="card-img-top img-fluid" alt="rice">
             </div>
         </div>
     </div>
     <!--<div class="">Daniel Fisher</div>-->
+    <footer>
+        <div class="row bg-secondary my-2" style="height: 50px;">
+          <p>Niklewski Recipes</p>
+          <a href="https://github.com" target="_blank" class="btn btn-primary">GitHub Page</a>
+        </div>
+    </footer>
 </body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+    const recipeId = params.get('id');
+
+    if (!recipeId) {
+        console.error("No recipe ID found in URL.");
+        return;
+    }
+
+    // Fetch both default recipes (from JSON) and user-submitted recipes (from localStorage)
+    fetch('recipe.json')
+        .then(response => response.json())
+        .then(data => {
+            const userRecipes = JSON.parse(localStorage.getItem('userRecipes')) || [];
+            const allRecipes = [...data, ...userRecipes]; // Combine both
+            const recipe = allRecipes.find(r => r.id == recipeId);
+            if (!recipe) {
+                console.error("Recipe not found for ID:", recipeId);
+                return;
+            }
+
+            const recipeContainer = document.getElementById('recipe-container');
+            recipeContainer.innerHTML = `
+                <div class="text-center mb-4">
+                    <h2>${recipe.name}</h2>
+                    <p>${recipe.story || 'No story available.'}</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Ingredients</h4>
+                        ${recipe.ingredients.map(ingredient => `
+                            <p><input type="checkbox"> ${ingredient}</p>
+                        `).join('')}
+                        <h4 class="mt-4">Cooking Instructions</h4>
+                        <ol>
+                            ${recipe.steps.map(step => `<li>${step}</li>`).join('')}
+                        </ol>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="${recipe.images[0].startsWith('data:') ? recipe.images[0] : 'images/' + recipe.images[0]}" alt="${recipe.name}" class="img-fluid rounded">
+                    </div>
+                </div>
+            `;
+
+            // Add Delete Button if it's a user-created recipe
+            if (recipe.userCreated) {
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete Recipe";
+                deleteBtn.className = "btn btn-danger mt-2";
+                deleteBtn.onclick = () => {
+                    deleteUserRecipe(recipe.id);
+                };
+                recipeContainer.appendChild(deleteBtn);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading recipe:', error);
+        });
+});
+
+// Delete user-created recipe function
+function deleteUserRecipe(recipeId) {
+    const userRecipes = JSON.parse(localStorage.getItem("userRecipes")) || [];
+    const updatedRecipes = userRecipes.filter(r => r.id !== recipeId);
+    localStorage.setItem("userRecipes", JSON.stringify(updatedRecipes));
+    alert('Recipe deleted successfully!');
+    window.location.href = "Recipies.html";
+    localStorage.setItem("reloadNeeded", "true");  // Flag reload
+}
+    </script>
 
 </html>

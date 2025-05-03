@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cooking Website Homepage</title>
+
+  <!--Styles Imported-->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="styles/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/customBootstrap.css" />
+
+  <!--Scripts Imported-->
+  <script defer src="scripts/scripts.js"></script>
+  <script defer src="scripts/search_bar.js"></script>
+</head>
+
+<style>
+    .scroll-container {
+        padding: 10px;
+        white-space: nowrap;
+        background-color: #fdf6e3; /* optional: nicer background */
+    }
+    
+    .scroll-container .card {
+        flex: 0 0 auto;
+        width: 250px;
+        margin: 10px;
+    }
+    </style>
+  
+  <body class="bg-light">
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-4">
+            <h1>Home</h1>
+                </div>
+                <!--Search Bar-->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <form action="Recipies.html" method="get" class="search-bar bg-light">
+                        <input class="bg-secondary" type="text" id="search-input" placeholder="Search for recipes" name="query">
+                        <button class="bg-primary" type="submit">Search</button>
+                    </form>
+                  </div>
+            </div>
+            <div class="row">
+                <!--home, recipes, about me, search, favorites-->
+                <nav class="navbar bg-secondary navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="../../Team_Projects.html">Back to Team Projects</a>
+                            <a class="nav-link" href="Recipies.html">Recipes</a>
+                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="Favorites.html">Favorites</a>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" id="seizure">%</button>
+                            <button class="btn btn-primary" id="theme-switch">Change theme</button>
+                            </div>
+                    </div>
+                </nav>
+            </div>
+    </header>
+    <div class="container">
+        <!-- Welcome & Recipe of the Day Row -->
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2>Welcome!</h2>
+            <p>
+              Welcome to the Niklewski recipes! Here you can find recipes for all your cooking needs.
+              We hope you enjoy all the deliciousness available!
+            </p>
+          </div>
+          <div class="col-12 col-md-6">
+            <h2>Recipe of the Day</h2>
+              <div id="recipe-of-day"></div> <!-- Dynamic recipe injection here -->
+          </div>
+        </div>
+    
+        <div class="row bg-secondary bg-body-tertiary my-2" style="height: 50px;"> <h2>Explore Recipes</h2> </div>
+        <!-- Recipe Cards Grid -->
+        <div id="main-card-grid" class="bg-light scroll-container d-flex flex-nowrap overflow-auto">
+          <!-- Dynamic recipe cards will be inserted here -->
+        </div>
+    
+        <!-- Seasonal Section -->
+        <div class="row bg-secondary bg-body-tertiary my-2" style="height: 50px;"> <h2>Seasonal Picks</h2> </div>
+        <div class="card-container" id="seasonal-container">
+          <!--Seasonal Stuff go here!-->
+        </div>
+    
+        <div class="row bg-secondary bg-body-tertiary my-2" style="height: 50px;"> <h2>Submit your own recipe!</h2> </div>
+        <div class="row text-center">
+          <a class="btn btn-primary" href="recipeSubmissionForm.html" type="button">Go to submission form</a>
+        </div>
+        <br />
+      </div>
+  <footer class="bg-secondary text-dark py-3 mt-4">
+    <div class="container">
+      <p class="mb-1">Niklewski Recipes</p>
+      <a href="https://github.com/AnastasiaSWilliams/CookingWebsiteRepo" target="_blank" style="color: inherit; text-decoration: underline;">GitHub Link</a>
+    </div>
+  </footer>
+</body>
+
+</html>

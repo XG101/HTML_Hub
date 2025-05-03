@@ -1,0 +1,79 @@
+/* Default: Mobile-first layout */
+.sidenav {
+    width: 100%;
+    position: static;
+    background: #f7d9ab;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+}
+
+.scroll-box {
+    max-height: none;
+    overflow: visible;
+}
+
+/* Responsive grid for cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+/* Desktop-specific layout */
+@media (min-width: 992px) {
+    #box {
+        width: 225px;
+        border: none;
+        color: var(--bs-tertiary);
+        box-shadow: none;
+    }
+    .sidenav {
+        width: 250px;
+        position: fixed;
+        top: 130px;
+        left: 10px;
+        z-index: 1;
+    }
+
+    .mainNav {
+        margin-left: 200px;
+    }
+
+    .scroll-box {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 991px) {
+    .filter-sidebar {
+      display: none;
+    }
+    .filter-sidebar.active {
+      display: block;
+      position: relative;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Submission Form</title>
+
+    <!--Styles Imported-->
+    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/customBootstrap.css">
+
+    <!--Scripts Imported-->
+    <script defer src="scripts/scripts.js"></script>
+    <script defer src="scripts/form.js"></script>
+</head>
+<body class="bg-light">
+    <!--<style>
+        body {
+            color: #4e3b2f;
+        }
+    </style>-->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <h1>Recipe Submission Form</h1>
+                </div>
+                <!--Search Bar-->
+                <div class="col-12 col-sm-6 col-md-4">
+                    <form action="Recipies.html" method="get" class="search-bar bg-light">
+                        <input class="bg-secondary" type="text" id="search-input" placeholder="Search for recipes" name="query">
+                        <button class="bg-primary" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <!--home, recipes, about me, search, favorites-->
+                <nav class="navbar bg-secondary navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <div class="navbar-nav">
+                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="Recipies.html">Recipes</a>
+                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="Favorites.html">Favorites</a>
+                        </div>
+                        <div>
+                        <button class="btn btn-primary" id="seizure">%</button>
+                        <button class="btn btn-primary" id="theme-switch">Change theme</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                
+                <label for="ingredients">Ingredients:</label> <br>
+                <div id="ingreBox">
+                    <input type="text" id="ingredients" name="ingredients">
+                </div>
+                <button id="mybtn1" class="btn btn-primary" onclick="addIngre()">+</button> <br>
+                
+                <label for="directions">Directions:</label> <br>
+                <div id="direcBox">
+                    <input type="text" id="directions" name="directions"><br>
+                </div>
+                <button id="mybtn2" class="btn btn-primary" onclick="addDirec()">+</button><br>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <label for="box">About the recipe:</label> <br>
+                <textarea id="box" name="words" rows="4" cols="30"></textarea><br>
+                <br>
+
+                <label for="dietary">Dietary:</label><br>
+                <input type="checkbox">Dairy Free <br>
+                <input type="checkbox">Gluten Free <br>
+                <input type="checkbox">High-Protein <br>
+                <input type="checkbox">Nut Free <br>
+                <input type="checkbox">Vegan <br>
+                <input type="checkbox">Vegetarian <br>
+                <br>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                <label for="c">Category:</label>
+                <select name="rating" id="c">
+                    <option value="Appetizers">Appetizers</option>
+                    <option value="Autumn">Autumn</option>
+                    <option value="Beverages">Beverages</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Desserts">Desserts</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Snacks">Snacks</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
+                    <option value="Winter">Winter</option>
+                </select><br><br>
+
+                <label for="C">Cuisine:</label>
+                <select name="rating" id="C">
+                    <option value="American">American</option>
+                    <option value="Asian">Asian</option>
+                    <option value="British">British</option>
+                    <option value="Cuban">Cuban</option>
+                    <option value="French">French</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Mediterranean">Mediterranean</option>
+                    <option value="Mexican">Mexican</option>
+                    <option value="Middle Eastern">Middle Eastern</option>
+                    <option value="Thai">Thai</option>
+                </select><br><br>
+
+                <label for="time">Prep Time:</label>
+                <input type="text" id="time" name="time" size="3"> minutes
+                <br><br>
+
+                <label for="D">Difficulty:</label>
+                <select name="rating" id="D">
+                    <option value="easy">Easy</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="hard">Hard</option>
+                </select><br><br>
+
+                <label for="Images">Images:</label>
+                <input id="images" type="file" accept="image/png, image/jpeg, image/webp" multiple>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <button class="btn btn-primary" onclick="saveRecipe()" type="button">Submit</button>
+        </div>
+    </div>
+
+    </body>
+    </html>

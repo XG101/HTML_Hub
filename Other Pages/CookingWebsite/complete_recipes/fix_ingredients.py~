@@ -1,0 +1,76 @@
+import json
+import csv
+import os
+from glob import glob
+
+# Step 1: Load ingredient replacements
+print("📥 Loading ingredient replacements from ingredient_strings.csv...")
+
+replacement_map = {}
+
+with open("ingredient_strings.csv", newline='', encoding="utf-8") as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        key = row['ingredient'].strip().lower()
+        value = row['quantity'].strip()
+        if key and value:
+            replacement_map[key] = value
+
+print(f"✅ Loaded {len(replacement_map)} ingredient mappings.\n")
+
+# Step 2: Process all JSON files
+for filepath in glob("*recipes*json"):
+    print(f"🔧 Processing {filepath}...")
+
+    with open(filepath, 'r', encoding='utf-8') as f:
+        try:
+            data = json.load(f)
+        except json.JSONDecodeError as e:
+            print(f"❌ Failed to parse {filepath}: {e}")
+            continue
+
+    # Detect and fix all ingredients lists
+    if isinstance(data, dict) and 'ingredients' in data:
+        print("  🔍 Found top-level 'ingredients' field.")
+        ingredients = data['ingredients']
+        if isinstance(ingredients, list):
+            new_ingredients = []
+            for ing in ingredients:
+                ing_key = ing.strip().lower()
+                if ing_key in replacement_map:
+                    new_val = replacement_map[ing_key]
+                    print(f"     🔁 Replacing '{ing}' → '{new_val}'")
+                    new_ingredients.append(new_val)
+                else:
+                    print(f"     ⚠️  No match for '{ing}', keeping original.")
+                    new_ingredients.append(ing)
+            data['ingredients'] = new_ingredients
+
+    # Optional: If your JSON is a list of recipes instead
+    elif isinstance(data, list):
+        print("  🔍 JSON is a list of recipes.")
+        for recipe in data:
+            if 'ingredients' in recipe and isinstance(recipe['ingredients'], list):
+                new_list = []
+                for ing in recipe['ingredients']:
+                    ing_key = ing.strip().lower()
+                    if ing_key in replacement_map:
+                        new_val = replacement_map[ing_key]
+                        print(f"     🔁 Replacing '{ing}' → '{new_val}'")
+                        new_list.append(new_val)
+                    else:
+                        print(f"     ⚠️  No match for '{ing}', keeping original.")
+                        new_list.append(ing)
+                recipe['ingredients'] = new_list
+
+    else:
+        print("  ⚠️  No 'ingredients' found in this JSON structure.")
+
+
+    # Step 3: Overwrite original file
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+    print(f"✅ Overwrote original file: {filepath}\n")
+
+    
+print("🎉 All done!")
